@@ -1,0 +1,64 @@
+<div class="table_class">
+    <h1>Create a Student</h1>
+    <div>
+        <div class="helper_tools">
+          <p><fa-icon [icon]="TrashIcon" (click)="deleteSelectedRow()"></fa-icon></p>
+        </div>
+        <mat-form-field>
+            <mat-label>Select an option</mat-label>
+            <mat-select (selectionChange)="select_filier()" [(value)]="selected">
+              <mat-option *ngFor="let filier_list of filier_list" value={{filier_list.filierNom}}>{{filier_list.filierNom}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row">
+          <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nom d'etudiant">
+        <th mat-header-cell *matHeaderCellDef> Nom du class</th>
+        <td mat-cell *matCellDef="let student"> {{student?.studentnom}} </td>
+      </ng-container>
+      <ng-container *ngFor="let list_module of list_module | keyvalue" matColumnDef={{list_module.key}}>
+        <th mat-header-cell *matHeaderCellDef> {{list_module.key}}</th>
+        <td mat-cell *matCellDef="let class"> {{list_module?.value}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="module1">
+        <th mat-header-cell *matHeaderCellDef> Nom Du Filier </th>
+        <td mat-cell *matCellDef="let class"> {{class?.filier?.filierNom}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="module2">
+        <th mat-header-cell *matHeaderCellDef> Nom Du Filier </th>
+        <td mat-cell *matCellDef="let class"> {{class?.filier?.filierNom}} </td>
+      </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="module3">
+        <th mat-header-cell *matHeaderCellDef> Nom Du Filier </th>
+        <td mat-cell *matCellDef="let class"> {{class?.filier?.filierNom}} </td>
+      </ng-container>
+      <!--<ng-container matColumnDef="Constultation">
+        <th mat-header-cell *matHeaderCellDef> Consultation</th>
+        <td mat-cell *matCellDef="let class"><a [routerLink]="['/ClassDetail']" [queryParams]="{ id:class.id }"
+            target="_blank">Afficher</a><fa-icon class="delete_row_icon" (click)="deleteRow(class)"
+            [icon]="TrashIcon"></fa-icon>
+        </td>
+      </ng-container>-->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>

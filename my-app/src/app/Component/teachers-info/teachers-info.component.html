@@ -1,0 +1,122 @@
+<div class="Profile_Container e">
+    <form *ngIf="load_profile;else elseBlock" [formGroup]="Profile" class="Profile">
+        <div class="Image_profile">
+            <img [src]="image" class="image" alt="Image">
+            <input type="file" data-value="image" style="display: none;" class="file-input"
+            (change)="onFileSelected($event)" #fileUpload>
+            <button matInput mat-mini-fab color="primary" class="upload-btn" (click)="fileUpload.click();">
+                <fa-icon [icon]="cameraicon">attach_file</fa-icon>
+            </button>
+        </div>
+        <div class="msg_upload">
+            <mat-error *ngIf="this.Profile.controls['file'].hasError('file_size')">{{this.Profile.controls["file"].getError("file_size")}}</mat-error>
+        </div>
+        <div class="Pofile_data">
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Id</mat-label>
+                    <input matInput placeholder="Id" formControlName="id">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>cin</mat-label>
+                    <input matInput #cin placeholder="cin" data-value="cin" (blur)="Update_input($event)"
+                        formControlName="cin">
+                    <mat-error
+                        *ngIf="this.Profile.controls['cin'].hasError('cin')">{{this.Profile.controls["cin"].getError("cin")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,cin)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nom</mat-label>
+                    <input matInput #nom placeholder="Nom" data-value="nom" (blur)="Update_input($event)"
+                        formControlName="nom">
+                    <mat-error
+                        *ngIf="this.Profile.controls['nom'].hasError('nom')">{{this.Profile.controls["nom"].getError("nom")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,nom)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Prenom</mat-label>
+                    <input matInput #prenom placeholder="class" data-value="prenom" (blur)="Update_input($event)"
+                        formControlName="prenom">
+                    <mat-error
+                        *ngIf="this.Profile.controls['prenom'].hasError('prenom')">{{this.Profile.controls["prenom"].getError("prenom")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,prenom)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput #email placeholder="Email" data-value="email" (blur)="Update_input($event)"
+                        formControlName="email">
+                    <mat-error
+                        *ngIf="this.Profile.controls['email'].hasError('email')">{{this.Profile.controls["email"].getError("email")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,email)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Phone</mat-label>
+                    <input matInput #phone placeholder="Phone" data-value="phone" (blur)="Update_input($event)"
+                        formControlName="phone">
+                    <mat-error
+                        *ngIf="this.Profile.controls['phone'].hasError('phone')">{{this.Profile.controls["phone"].getError("phone")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,phone)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Address</mat-label>
+                    <input matInput #address placeholder="Address" data-value="address" (blur)="Update_input($event)"
+                        formControlName="address">
+                    <mat-error
+                        *ngIf="this.Profile.controls['address'].hasError('address')">{{this.Profile.controls["address"].getError("address")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,address)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Birthday</mat-label>
+                    <input type="date" matInput #birthday placeholder="Birthday" data-value="birthday" (blur)="Update_input($event)"
+                        formControlName="birthday">
+                    <mat-error
+                        *ngIf="this.Profile.controls['birthday'].hasError('birthday')">{{this.Profile.controls["birthday"].getError("birthday")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,birthday)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Gender</mat-label>
+                    <input matInput #gender placeholder="Gender" data-value="gender" (blur)="Update_input($event)"
+                        formControlName="gender">
+                    <mat-error
+                        *ngIf="this.Profile.controls['gender'].hasError('gender')">{{this.Profile.controls["gender"].getError("gender")}}</mat-error>
+                </mat-form-field>
+                <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing($event,gender)">
+                    <fa-icon [icon]="editIcon">attach_file</fa-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <ng-template #elseBlock>
+        <p>No User Found</p>
+      </ng-template>
+</div>

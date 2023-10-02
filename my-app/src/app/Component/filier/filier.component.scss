@@ -1,0 +1,17 @@
+.filier_wrapper{
+    height: 100vh;
+}
+.Filier{
+    width: 30%;
+    position: relative;
+    margin: 0 auto;
+    top: 40%;
+    transform: translateY(-50%);
+}
+.Filier > div,.Filier mat-form-field{
+    width: 100%;
+}
+.Filier button{
+    margin: 0 auto;
+    display: block;
+}

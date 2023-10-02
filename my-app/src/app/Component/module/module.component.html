@@ -1,0 +1,35 @@
+<div class="Module_wrapper">
+  <form *ngIf="isFormHidden" [formGroup]="module" (submit)="submit_element()" class="Module">
+      <div class="example-container">
+          <mat-form-field>
+              <mat-label>Enter your le Nom du Module</mat-label>
+              <input matInput placeholder="Nom d'element" formControlName="moduleNom">
+              <mat-error *ngIf="module.controls['moduleNom'].hasError('required') || module.controls['moduleNom'].hasError('moduleNom_NotEmpty')">Nom d'element is required</mat-error>
+              <mat-error *ngIf="module.controls['moduleNom'].hasError('module_unicity')">{{module.controls['moduleNom'].getError("module_unicity")}}</mat-error>
+
+            </mat-form-field>
+      </div>
+      <div class="example-container">
+          <mat-form-field>
+              <mat-label>Code Module</mat-label>
+              <input matInput placeholder="Nom d'element" formControlName="codeModule">
+              <mat-error *ngIf="module.controls['codeModule'].hasError('required') || module.controls['codeModule'].hasError('codeModule_NotBlank') ">Codem d'element is required</mat-error>
+              <mat-error *ngIf="module.controls['codeModule'].hasError('codeModule_unicity')">{{module.controls['codeModule'].getError("codeModule_unicity")}}</mat-error>
+            </mat-form-field>
+      </div>
+      <div class="example-container">
+          <mat-form-field>
+              <mat-label>Chosir la Class que vous voulez associer</mat-label>
+              <mat-select formControlName="class_noms">
+                <mat-option *ngFor="let class_nom of class_nom" [value]="class_nom.classNom">
+                  {{class_nom.classNom}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="module.controls['class_noms'].hasError('required')">Please choose an class</mat-error>
+            </mat-form-field>
+      </div>
+      <div>
+          <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+  </form>
+</div>

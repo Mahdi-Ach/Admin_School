@@ -1,0 +1,22 @@
+.Element{
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Element > div{
+    width: 45%;
+    display: flex;
+    
+}
+.input_field{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.input_field button{
+}
+.Element
+mat-form-field{
+    width: 100%;
+}

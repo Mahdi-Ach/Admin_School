@@ -1,0 +1,53 @@
+@use '@material/density' as mdc-density;
+.SinginStudent_wrapper h1{
+    color: #4e73df;
+    padding: 30px 0;
+    margin: 0px 30px;
+    border-bottom: 1px solid #4e73df;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0 30px;
+    position: relative;
+    transform: translateY(20%);
+}
+form div{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+form mat-form-field,form mat-radio-group ,.file_uploadsection{
+    width: 30%;
+}
+form mat-radio-button{
+    display: block;
+}
+form button[type="submit"]{
+    display: block;
+    width: 40%;
+}
+.alert{
+    width: 50%;
+    margin: 40px auto;
+    padding: 0;
+}
+form h2{
+    margin: 0 auto;
+}
+.file_uploadsection{
+    display: flex;
+    align-items: center;
+}
+.file-upload{
+    width: 100%;
+}
+.file-input {
+    display: none;
+    width: 100%;
+  }
+  mat-form-field > div{
+    display: flex!important;
+  }

@@ -1,0 +1,27 @@
+<form *ngIf="isFormHidden" [formGroup]="class" class="class">
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Enter your class Name</mat-label>
+            <input matInput placeholder="Nom d'class" (blur)="update_data(class.controls['classNom'])" formControlName="classNom">
+            <mat-error *ngIf="class.controls['classNom'].hasError('required')">Nom d'class is required</mat-error>
+            <mat-error *ngIf="class.controls['classNom'].hasError('class_unicity')">{{class.controls['classNom'].getError("class_unicity")}}</mat-error>
+            </mat-form-field>
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing(class.controls['classNom'])">
+                <fa-icon [icon]="editIcon">attach_file</fa-icon>
+            </button>
+    </div>
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Favorite animal</mat-label>
+            <mat-select (selectionChange)="update_data(class.controls['nomfilier'])" formControlName="nomfilier">
+              <mat-option *ngFor="let list_Filier of list_Filier" [value]="list_Filier.filierNom">
+                {{list_Filier.filierNom}}
+              </mat-option>
+            </mat-select>
+            <!--<mat-error *ngIf="class.controls['module_name'].hasError('required')">Please choose an animal</mat-error>
+            --></mat-form-field>
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing(class.controls['nomfilier'])">
+                <fa-icon [icon]="editIcon">attach_file</fa-icon>
+            </button>
+    </div>
+</form>

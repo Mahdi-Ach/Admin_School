@@ -1,0 +1,27 @@
+<form *ngIf="isFormHidden" [formGroup]="element" class="Element">
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Enter your Element Name</mat-label>
+            <input matInput placeholder="Nom d'element" (blur)="update_data(element.controls,element.controls['elementNom'])" formControlName="elementNom">
+            <mat-error *ngIf="element.controls['elementNom'].hasError('required')">Nom d'element is required</mat-error>
+            <mat-error *ngIf="element.controls['elementNom'].hasError('element_unicity')">{{element.controls['elementNom'].getError("element_unicity")}}</mat-error>
+            </mat-form-field>
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing(element.controls['elementNom'])">
+                <fa-icon [icon]="editIcon">attach_file</fa-icon>
+            </button>
+    </div>
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Favorite animal</mat-label>
+            <mat-select (selectionChange)="update_data(element.controls,element.controls['moduleNom'])" formControlName="moduleNom">
+              <mat-option *ngFor="let list_Module of list_Module" [value]="list_Module.moduleNom">
+                {{list_Module.moduleNom}}
+              </mat-option>
+            </mat-select>
+            <!--<mat-error *ngIf="element.controls['module_name'].hasError('required')">Please choose an animal</mat-error>
+            --></mat-form-field>
+            <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing(element.controls['moduleNom'])">
+                <fa-icon [icon]="editIcon">attach_file</fa-icon>
+            </button>
+    </div>
+</form>

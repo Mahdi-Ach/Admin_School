@@ -1,0 +1,26 @@
+.Class_wrapper{
+    height: 100vh;
+}
+.Class{
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+}
+.Class > div:not(:last-child){
+    width: 45%;
+}
+.Class > div:last-child{
+    width: 100%;
+}
+.Class mat-form-field{
+    width: 100%;
+} 
+.Class button{
+    display: block;
+    margin: 0 auto;
+}

@@ -1,0 +1,28 @@
+<div class="Class_wrapper">
+
+    <form [formGroup]="module" (submit)="submit_element()" class="Class">
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Enter your le Nom du Class</mat-label>
+                <input matInput placeholder="Nom d'element" formControlName="classNom">
+                <mat-error *ngIf="module.controls['classNom'].hasError('required') || module.controls['classNom'].hasError('classNom_NotEmpty')">Nom d'element is required</mat-error>
+                <mat-error *ngIf="module.controls['classNom'].hasError('class_unicity')">{{module.controls['classNom'].getError("class_unicity")}}</mat-error>
+              </mat-form-field>
+        </div>
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Chosir la Class que vous voulez associer</mat-label>
+                <mat-select formControlName="filier_noms">
+                    <mat-option [value]=""></mat-option>
+                  <mat-option *ngFor="let filier_noms of filier_noms" [value]="filier_noms.filierNom">
+                    {{filier_noms.filierNom}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="module.controls['filier_noms'].hasError('required') || module.controls['filier_noms'].hasError('required') ">Please choose an Filier</mat-error>
+              </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>

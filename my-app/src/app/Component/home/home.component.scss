@@ -1,0 +1,143 @@
+.sidebar{
+    background: #4e73df;
+    min-width: 227px;
+    padding: 20px 18px;
+    font-size: 15px;
+}
+.sidebar > div{
+    position: relative;
+}
+
+.down{
+    transform: rotate(180deg);
+}
+.sidebar img{
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
+}
+.sidebar div:first-child{
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+}
+.sidebar div.Logo{
+    padding: 0 ;
+}
+.accordition_items{
+    box-sizing: border-box;
+    display: none;
+}
+.sidebar button {
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 5px 0;
+    font-size: 15px;
+}
+.sidebar div p{
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.Home{
+    display: flex;
+}
+.infos{
+    width: 100%;
+}
+.navbar_tools{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.infos_navbar nav{
+    padding: 15px 30px;
+    box-shadow: -1px -3px 37px 0px rgba(194,194,194,0.7);
+    -webkit-box-shadow: -1px -3px 37px 0px rgba(194,194,194,0.7);
+}
+.infos_navbar fa-icon{
+    font-size: 20px;
+    margin: 0 10px;
+}
+
+.input-group{
+    flex-grow: 0;
+    width: auto;
+}
+.input-group input,.input-group span{
+    height: 30px;
+}
+.infos_navbar button{
+    border: none;
+    font-size: 10px;
+}
+.infos_navbar button:focus{
+    box-shadow: none;
+}
+.navbar_items_group{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input-group{
+    flex-wrap: nowrap;
+    margin-right: auto;
+}
+.navbar-toggler-icon{
+    font-size: 20px;
+}
+.navbar{
+    flex-wrap: nowrap;
+}
+@media screen and (max-width: 900px) {
+    .navbar_items_group{
+        justify-content: stretch;
+    }
+    .navbar-toggler{
+        margin-right: auto;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .sidebar{
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .sidebar > div{
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+    }
+    .sidebar div fa-icon{
+        display: block;
+    }
+    .accordition_items{
+        transition: 0;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 5px);
+        width: 105%;
+    }
+    .sidebar{
+        min-width: 160px; 
+    }
+    .navbar_items_group{
+        width: auto;
+    }
+    .input-group{
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 768px) {
+    .input-group{
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        right: 0;
+        padding: 10px;
+        background: white;
+    }
+}

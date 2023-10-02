@@ -1,0 +1,16 @@
+<div class="filier_wrapper">
+    <form [formGroup]="filier" (submit)="submit_element()" class="Filier">
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Enter your le Nom du Class</mat-label>
+                <input matInput placeholder="Nom d'element" formControlName="filierNom">
+                <mat-error *ngIf="filier.controls['filierNom'].hasError('required') || filier.controls['filierNom'].hasError('filierNom_NotEmpty')">Nom d'element is required</mat-error>
+                <mat-error *ngIf="filier.controls['filierNom'].hasError('filier_unicity')">{{filier.controls['filierNom'].getError("filier_unicity")}}</mat-error>
+              </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+
+</div>

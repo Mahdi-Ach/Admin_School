@@ -1,0 +1,23 @@
+.Module_wrapper{
+height: 100vh;
+}
+.Module{
+    position: relative;
+    top: 40%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
+    margin: 0 auto;
+}
+.Module > div:not(:last-child){
+    width: 30%;
+}
+.Module > div:last-child{
+    width: 100%;
+}
+.Module button{
+    display: block;
+    margin: 0 auto;
+}

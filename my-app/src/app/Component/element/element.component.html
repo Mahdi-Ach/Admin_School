@@ -1,0 +1,24 @@
+<form *ngIf="isFormHidden" [formGroup]="element" (submit)="submit_element()" class="Element">
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Enter your Element Name</mat-label>
+            <input matInput placeholder="Nom d'element" formControlName="elementNom">
+            <mat-error *ngIf="element.controls['elementNom'].hasError('required')">Nom d'element is required</mat-error>
+            <mat-error *ngIf="element.controls['elementNom'].hasError('element_unicity')">{{element.controls['elementNom'].getError("element_unicity")}}</mat-error>
+          </mat-form-field>
+    </div>
+    <div class="example-container">
+        <mat-form-field>
+            <mat-label>Favorite animal</mat-label>
+            <mat-select formControlName="module_name">
+              <mat-option *ngFor="let modules_nom of modules_nom" [value]="modules_nom.nomModule">
+                {{modules_nom.nomModule}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="element.controls['module_name'].hasError('required')">Please choose an animal</mat-error>
+          </mat-form-field>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

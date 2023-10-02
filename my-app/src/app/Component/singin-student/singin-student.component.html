@@ -1,0 +1,77 @@
+<div class="SinginStudent_wrapper">
+  <h1>Create a Student</h1>
+  <form [formGroup]="singinstudentsection" (submit)="submitStudentSection($event)">
+    <div class="alert alert-primary" *ngIf="hide" role="alert">
+      <h2>{{success_message}}</h2>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Enter your CNE</mat-label>
+        <input matInput placeholder="Inserer le CNE" formControlName=cne>
+        <mat-error *ngIf="this.singinstudentsection.controls['cne'].hasError('required')">Cne Is Required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your Nom</mat-label>
+        <input matInput placeholder="Inserer le Nom" formControlName=nom>
+        <mat-error *ngIf="this.singinstudentsection.controls['nom'].hasError('required')">Nom Is Required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your Prenom</mat-label>
+        <input matInput placeholder="Inserer le prenom" formControlName=prenom>
+        <mat-error *ngIf="this.singinstudentsection.controls['prenom'].hasError('required')">Prenom Is Required</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Enter your Phone</mat-label>
+        <input matInput placeholder="Phone : XX-XX-XX-XX-XX" formControlName=phone>
+        <mat-error *ngIf="this.singinstudentsection.controls['phone'].hasError('required')">Phone Is Required</mat-error>
+        <mat-error *ngIf="this.singinstudentsection.controls['phone'].hasError('pattern')">Format XX-XX-XX-XX-XX</mat-error>
+        <mat-error *ngIf="this.singinstudentsection.controls['phone'].hasError('phone_unicity')">{{this.singinstudentsection.controls['phone'].errors?.['phone_unicity']}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your Date</mat-label>
+        <input matInput placeholder="dd-mm-yyyy" type="date" formControlName = birthday>
+        <mat-error *ngIf="this.singinstudentsection.controls['birthday'].hasError('required')">Date is Required</mat-error>
+        <mat-error *ngIf="this.singinstudentsection.controls['birthday'].hasError('pattern')">Format dd/mm/yyyy</mat-error>
+        
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Enter your Email</mat-label>
+        <input matInput placeholder="pat@example.com" formControlName=email>
+        <mat-error *ngIf="this.singinstudentsection.controls['email'].hasError('required')">Email Is Required</mat-error>
+        <mat-error *ngIf="this.singinstudentsection.controls['email'].hasError('email')">Format pat@example.com</mat-error> 
+        <mat-error *ngIf="this.singinstudentsection.controls['email'].hasError('email_unicity')">{{this.singinstudentsection.controls['email'].errors?.['email_unicity']}}</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-radio-group matInput aria-label="Select an option" formControlName=gender>
+        <mat-radio-button value="Male">Male</mat-radio-button>
+        <mat-radio-button value="Femal">Femal</mat-radio-button>
+        <mat-error *ngIf="this.singinstudentsection.controls['gender'].hasError('required')">Gender Is Required</mat-error>
+      </mat-radio-group>
+      <mat-form-field>
+        <mat-label>Enter your Address</mat-label>
+        <input matInput placeholder="Inserer le Address"  formControlName=address>
+        <mat-error *ngIf="this.singinstudentsection.controls['address'].hasError('required')">Address Is Required</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <div>
+          <input type="file" class="file-input"
+          (change)="onFileSelected($event)" #fileUpload>
+            <input type="text" class="filename" value="{{fileName}}" placeholder="fileName" matInput formControlName=file readonly>   
+          <button mat-mini-fab color="primary" class="upload-btn"
+          (click)="fileUpload.click();false">
+          <mat-icon>attach_file</mat-icon>
+          </button>
+        </div>
+        <mat-error *ngIf="this.singinstudentsection.controls['file'].hasError('required')">File Is Required</mat-error>
+        <mat-error *ngIf="this.singinstudentsection.controls['file'].hasError('file_size')">{{this.singinstudentsection.controls['file'].errors?.['file_size']}}</mat-error>
+      </mat-form-field>
+    </div>
+  
+    <button type="submit" class="btn btn-light">Submit</button>
+
+  </form>
+  <div></div>
+</div>

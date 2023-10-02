@@ -1,0 +1,53 @@
+.Profile_Container{
+    background: rgb(78,115,223);
+background: linear-gradient(90deg, rgba(78,115,223,1) 0%, rgba(26,72,207,1) 64%);
+height: 100vh;
+}
+.Profile{
+    width:70%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.msg_upload{
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+.Profile img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    display: block;
+    margin: 0 auto;
+}
+.Pofile_data{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.Pofile_data > div {
+    position: relative;
+    width: 30%;
+}
+.Pofile_data button{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.Image_profile{
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+}
+.Image_profile button{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}

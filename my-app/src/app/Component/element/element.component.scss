@@ -1,0 +1,23 @@
+form{
+    position: relative;
+    top: -50%;
+    transform: translateY(50%);
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+form mat-form-field{
+    width: 100%;
+}
+form > div:not(:last-child){
+    width: 47%;
+}
+form > div:last-child{
+    width: 70%;
+    margin: 0 auto;
+}
+form button{
+    width: 100%;
+}

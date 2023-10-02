@@ -1,0 +1,16 @@
+<div class="filier_wrapper">
+    <form *ngIf="isFormHidden" [formGroup]="filier" class="Filier">
+        <div class="example-container">
+            <mat-form-field>
+                <mat-label>Enter your le Nom du Class</mat-label>
+                <input matInput placeholder="Nom d'element" (blur)="disable_input(filier.controls['filierNom'])" formControlName="filierNom">
+                <mat-error *ngIf="filier.controls['filierNom'].hasError('required') || filier.controls['filierNom'].hasError('filierNom')">Nom d'element is required</mat-error>
+                <mat-error *ngIf="filier.controls['filierNom'].hasError('filier_unicity')">{{filier.controls['filierNom'].getError("filier_unicity")}}</mat-error>
+              </mat-form-field>
+              <button mat-mini-fab color="primary" class="upload-btn" (click)="enable_editing(filier.controls['filierNom'])">
+                  <fa-icon [icon]="editIcon">attach_file</fa-icon>
+              </button>
+        </div>
+    </form>
+
+</div>

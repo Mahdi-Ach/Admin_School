@@ -1,0 +1,38 @@
+<form *ngIf="isFormHidden" [formGroup]="module" module="module">
+  <div class="example-container">
+      <mat-form-field>
+          <mat-label>Enter your module Name</mat-label>
+          <input matInput placeholder="Nom d'module" (blur)="update_data(module.controls['nomModule'])" formControlName="nomModule">
+          <mat-error *ngIf="module.controls['nomModule'].hasError('required')">Nom d'module is required</mat-error>
+          <mat-error *ngIf="module.controls['nomModule'].hasError('module_unicity')">{{module.controls['nomModule'].getError("module_unicity")}}</mat-error>
+          </mat-form-field>
+          <button mat-mini-fab color="primary" module="upload-btn" (click)="enable_editing(module.controls['nomModule'])">
+              <fa-icon [icon]="editIcon">attach_file</fa-icon>
+          </button>
+  </div>
+  <div class="example-container">
+    <mat-form-field>
+        <mat-label>Enter your module Name</mat-label>
+        <input matInput placeholder="Nom d'module" (blur)="update_data(module.controls['codeModule'])" formControlName="codeModule">
+        <mat-error *ngIf="module.controls['codeModule'].hasError('required')">Nom d'module is required</mat-error>
+        <mat-error *ngIf="module.controls['codeModule'].hasError('module_unicity')">{{module.controls['codeModule'].getError("codeModule_unicity")}}</mat-error>
+        </mat-form-field>
+        <button mat-mini-fab color="primary" module="upload-btn" (click)="enable_editing(module.controls['codeModule'])">
+            <fa-icon [icon]="editIcon">attach_file</fa-icon>
+        </button>
+</div>
+  <div class="example-container">
+      <mat-form-field>
+          <mat-label>Favorite animal</mat-label>
+          <mat-select (selectionChange)="update_data(module.controls['classRoom'])" formControlName="classRoom">
+            <mat-option *ngFor="let list_class of list_class" [value]="list_class.classNom">
+              {{list_class.classNom}}
+            </mat-option>
+          </mat-select>
+          <!--<mat-error *ngIf="module.controls['module_name'].hasError('required')">Please choose an animal</mat-error>
+          --></mat-form-field>
+          <button mat-mini-fab color="primary" module="upload-btn" (click)="enable_editing(module.controls['classRoom'])">
+              <fa-icon [icon]="editIcon">attach_file</fa-icon>
+          </button>
+  </div>
+</form>
